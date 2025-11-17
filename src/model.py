@@ -6,10 +6,7 @@ import os
 
 class IrisClassifier:
     def __init__(self, random_state=42):
-        self.model = LogisticRegression(
-            random_state=random_state,
-            max_iter=200
-        )
+        self.model = LogisticRegression(random_state=random_state, max_iter=200)
         self.is_trained = False
 
     def train(self, X_train, y_train):
@@ -34,7 +31,7 @@ class IrisClassifier:
 
         return accuracy, report
 
-    def save_model(self, filepath='models/iris_classifier.pkl'):
+    def save_model(self, filepath="models/iris_classifier.pkl"):
         """Save trained model to file"""
         if not self.is_trained:
             raise ValueError("Model must be trained before saving")
@@ -42,7 +39,7 @@ class IrisClassifier:
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
         joblib.dump(self.model, filepath)
 
-    def load_model(self, filepath='models/iris_classifier.pkl'):
+    def load_model(self, filepath="models/iris_classifier.pkl"):
         """Load trained model from file"""
         self.model = joblib.load(filepath)
         self.is_trained = True

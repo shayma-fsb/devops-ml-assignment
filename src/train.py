@@ -34,7 +34,7 @@ def main():
 
     # Save model
     print("Saving model...")
-    classifier.save_model('models/iris_classifier.pkl')
+    classifier.save_model("models/iris_classifier.pkl")
 
     # Generate plots
     print("Generating evaluation plots...")

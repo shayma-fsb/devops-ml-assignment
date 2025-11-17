@@ -13,7 +13,7 @@ def main():
     # Load model
     try:
         classifier = IrisClassifier()
-        classifier.load_model('models/iris_classifier.pkl')
+        classifier.load_model("models/iris_classifier.pkl")
         print("Model loaded successfully!")
     except FileNotFoundError:
         print("Model not found. Please run train.py first.")

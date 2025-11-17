@@ -9,9 +9,9 @@ import numpy as np
 from typing import Tuple
 
 
-def load_iris_data(test_size: float = 0.2, random_state: int = 42) -> Tuple[
-    np.ndarray, np.ndarray, np.ndarray, np.ndarray
-]:
+def load_iris_data(
+    test_size: float = 0.2, random_state: int = 42
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     """
     Load and split the Iris dataset
 
@@ -30,10 +30,11 @@ def load_iris_data(test_size: float = 0.2, random_state: int = 42) -> Tuple[
 
         # Split into train and test sets
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y,
+            X,
+            y,
             test_size=test_size,
             random_state=random_state,
-            stratify=y  # Maintain class distribution in splits
+            stratify=y,  # Maintain class distribution in splits
         )
 
         print(f"Successfully loaded Iris dataset")
@@ -93,8 +94,8 @@ def load_iris_as_dataframe() -> pd.DataFrame:
     try:
         iris = load_iris()
         df = pd.DataFrame(iris.data, columns=iris.feature_names)
-        df['target'] = iris.target
-        df['species'] = df['target'].apply(lambda x: iris.target_names[x])
+        df["target"] = iris.target
+        df["species"] = df["target"].apply(lambda x: iris.target_names[x])
 
         print(f"Loaded Iris dataset as DataFrame with {len(df)} rows")
         return df
@@ -115,14 +116,14 @@ def get_dataset_info() -> dict:
         iris = load_iris()
 
         info = {
-            'feature_names': iris.feature_names,
-            'target_names': iris.target_names.tolist(),
-            'n_samples': iris.data.shape[0],
-            'n_features': iris.data.shape[1],
-            'n_classes': len(iris.target_names),
-            'class_distribution': dict(
+            "feature_names": iris.feature_names,
+            "target_names": iris.target_names.tolist(),
+            "n_samples": iris.data.shape[0],
+            "n_features": iris.data.shape[1],
+            "n_classes": len(iris.target_names),
+            "class_distribution": dict(
                 zip(*np.unique(iris.target, return_counts=True))
-            )
+            ),
         }
 
         print("Dataset Information:")
