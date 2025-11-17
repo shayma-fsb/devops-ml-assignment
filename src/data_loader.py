@@ -16,7 +16,8 @@ def load_iris_data(
     Load and split the Iris dataset
 
     Args:
-        test_size: Proportion of dataset to include in test split (default: 0.2)
+        test_size: Proportion of dataset to include in test
+        split (default: 0.2)
         random_state: Random seed for reproducibility (default: 42)
 
     Returns:
@@ -25,8 +26,10 @@ def load_iris_data(
     try:
         # Load the Iris dataset
         iris = load_iris()
-        X = iris.data  # Features: sepal length, sepal width, petal length, petal width
-        y = iris.target  # Target: 0=setosa, 1=versicolor, 2=virginica
+        X = iris.data
+        # Features: sepal length, sepal width, petal length, petal width
+        y = iris.target
+        # Target: 0=setosa, 1=versicolor, 2=virginica
 
         # Split into train and test sets
         X_train, X_test, y_train, y_test = train_test_split(
@@ -37,7 +40,7 @@ def load_iris_data(
             stratify=y,  # Maintain class distribution in splits
         )
 
-        print(f"Successfully loaded Iris dataset")
+        print("Successfully loaded Iris dataset")
         print(f"   Features: {X.shape[1]}, Samples: {X.shape[0]}")
         print(f"   Training set: {X_train.shape[0]} samples")
         print(f"   Test set: {X_test.shape[0]} samples")

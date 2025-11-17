@@ -26,9 +26,9 @@ class TestIrisClassifier:
         self.classifier.train(self.X_train, self.y_train)
         predictions = self.classifier.predict(self.X_test[:5])
         assert len(predictions) == 5
-        assert all(
-            isinstance(pred, (np.int32, np.int64, int)) for pred in predictions
-        )
+        assert all(isinstance(
+            pred,
+            (np.int32, np.int64, int)) for pred in predictions)
 
     def test_model_evaluation(self):
         """Test model evaluation functionality"""
@@ -65,4 +65,5 @@ def test_data_loading():
 
     assert X_train.shape[1] == 4  # 4 features
     assert len(np.unique(y_train)) == 3  # 3 classes
-    assert len(X_train) + len(X_test) == 150  # Total samples
+    assert len(X_train) + len(X_test) == 150
+    # Total samples
