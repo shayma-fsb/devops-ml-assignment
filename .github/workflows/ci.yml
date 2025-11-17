@@ -48,7 +48,7 @@ jobs:
       with:
         name: pytest-results
         # Le chemin de l'artefact doit être relatif à la racine du dépôt
-        path: session2/ml-app/test-results.xml
+        path: ml-app/test-results.xml
         retention-days: 5
 
     - name: Build Docker Image
